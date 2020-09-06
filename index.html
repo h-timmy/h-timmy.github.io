@@ -8,7 +8,16 @@
 		<p>
 			<p id="demo"></p>
 			<script>
-    				$(document).ready(function(){
+    				$.ajax({
+  					type: "POST",
+  					url: "~/booking.py",
+  					data: { param: "get_all()"}
+				}).done(function(data) {
+   					console.log("YES");
+					console.log(data);
+				});
+				
+				$(document).ready(function(){
         				$.getJSON("reservations.json", function(data){
 						var json_object = data.reservations;
             					console.log("A"); // Prints: Harry
