@@ -12,7 +12,14 @@
 //var content = fs.readFileSync("reservations.json");
 //console.log(content);
 
-$(document).ready(function(){
+var json_file = "https://github.com/h-timmy/h-timmy.github.io/blob/master/reservations.json";
+  $.getJSON( json_file, {
+    //tags: "mount rainier",
+    tagmode: "any",
+    format: "json"
+  }
+
+/*$(document).ready(function(){
         $.getJSON("reservations.json", function(data){
             console.log("A"); // Prints: Harry
             console.log("B"); // Prints: 14
@@ -20,6 +27,7 @@ $(document).ready(function(){
             console.log("An error has occurred.");
         });
     });
+    */
 
 //var json = JSON.parse(content);
 
