@@ -17,7 +17,7 @@ var json_file = "https://github.com/h-timmy/h-timmy.github.io/blob/master/reserv
     //tags: "mount rainier",
     tagmode: "any",
     format: "json"
-  };
+  });
 
 /*$(document).ready(function(){
         $.getJSON("reservations.json", function(data){
