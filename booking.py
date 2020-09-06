@@ -19,6 +19,9 @@ def add_reservation(name, start, end, reason):
         json.dump(json_object, outfile, indent=4)
     #json.dump(json_object, "reservations.json", indent=4)
 
+def get_all():
+    return json
+
 
 
 #print(json_object)
