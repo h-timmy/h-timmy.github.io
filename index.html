@@ -3,8 +3,44 @@
 	<head>
 		<title>Hank Quinlan, Horrible Cop</title>
 		<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+		<script src="reservation_functions.js"></script>
 	</head>
 	<body>
+		<form name="myform" onsubmit="return validateForm()">
+			Name: <input type="text" name="name"> /n
+			Date: <input type="date" name="date"> /n
+			StartT: <input type="time" name="start"> /n
+			EndT: <input type="time" name="end"> /n
+			Reason: <input type="text" name="reason"> /n
+		</form>
+		<table id="times">
+			<tr>
+				<th>12</th>
+				<th>1</th>
+				<th>2</th>
+				<th>3</th>
+				<th>4</th>
+				<th>5</th>
+				<th>6</th>
+				<th>7</th>
+				<th>8</th>
+				<th>9</th>
+				<th>10</th>
+				<th>11</th>
+				<th>12</th>
+				<th>1</th>
+				<th>2</th>
+				<th>3</th>
+				<th>4</th>
+				<th>5</th>
+				<th>6</th>
+				<th>7</th>
+				<th>8</th>
+				<th>9</th>
+				<th>10</th>
+				<th>11</th>
+			</tr>
+		</table>
 		<p>
 			<p id="demo"></p>
 			<script>
@@ -23,6 +59,33 @@
 					document.getElementById("demo").innerHTML = getAll(json);
 				});
 				
+				function update_JSON(json) {
+					$.ajax({
+            					type: 'post',
+            					url: "reservations.json",
+            					data: JSON.stringify(json),
+            					contentType: "application/json; charset=utf-8",
+            					traditional: true,
+            					success: function (data) {
+             						   console.log("successful");
+            					}
+       					 });
+				}
+				
+				function validateForm() {
+					var n = document.forms["myform"]["name"].value;
+					var d = document.forms["myform"]["date"].value;
+					var s = document.forms["myform"]["start"].value;
+					var e = document.forms["myform"]["end"].value;
+					var r = document.forms["myform"]["reason"].value;
+					$.getJSON("reservations.json", function(json) {
+    						console.log(json);
+						document.getElementById("demo").innerHTML = getAll(json);
+						add_reservation(json, n, d, s, e, r);
+						update_JSON(json);
+					});
+					
+				}
 				
 				
     			</script> 
