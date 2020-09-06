@@ -6,7 +6,16 @@
 	</head>
 	<body>
 		<p>
-			<script src="web-script.js"></script>
+			<script>
+    $(document).ready(function(){
+        $.getJSON("reservations.json", function(data){
+            console.log("A"); // Prints: Harry
+            console.log("B"); // Prints: 14
+        }).fail(function(){
+            console.log("An error has occurred.");
+        });
+    });
+    </script> 
 		</p>
 	</body>
 </html>
