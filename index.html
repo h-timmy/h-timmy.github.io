@@ -8,12 +8,22 @@
 		<p>
 			<p id="demo"></p>
 			<script>
+				function getAll(json) {
+  					var text = ""
+  						for (i = 0; i < json.reservations.length; i++) {
+    							text += "Name: " + json.reservations[i].name + "\n";
+  						}
+  					return text;
+				}
+
     				$.getJSON("reservations.json", function(json) {
     					console.log(json);
 					//var parsed = JSON.parse(json);
 					//console.log(parsed.reservations[1].name);
-					document.getElementById("demo").innerHTML = json.reservations[1].name;
+					document.getElementById("demo").innerHTML = getAll(json);
 				});
+				
+				
 				
     			</script> 
 		</p>
