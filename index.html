@@ -6,16 +6,18 @@
 	</head>
 	<body>
 		<p>
+			<p id="demo"></p>
 			<script>
-    $(document).ready(function(){
-        $.getJSON("reservations.json", function(data){
-            console.log("A"); // Prints: Harry
-            console.log("B"); // Prints: 14
-        }).fail(function(){
-            console.log("An error has occurred.");
-        });
-    });
-    </script> 
+    				$(document).ready(function(){
+        				$.getJSON("reservations.json", function(data){
+            					console.log("A"); // Prints: Harry
+						document.getElementById("demo").innerHTML = data;
+            					console.log("B"); // Prints: 14
+        				}).fail(function(){
+            					console.log("An error has occurred.");
+        				});
+    				});
+    			</script> 
 		</p>
 	</body>
 </html>
