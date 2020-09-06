@@ -10,8 +10,9 @@
 			<script>
     				$.getJSON("reservations.json", function(json) {
     					console.log(json);
-					var parsed = JSON.parse(json);
-					console.log(parsed.reservations[1].name);
+					//var parsed = JSON.parse(json);
+					//console.log(parsed.reservations[1].name);
+					document.getElementById("demo").innerHTML = json.reservations[1];
 				});
 				
     			</script> 
