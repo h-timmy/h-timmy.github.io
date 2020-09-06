@@ -8,13 +8,8 @@
 		<p>
 			<p id="demo"></p>
 			<script>
-    				$.ajax({
-  					type: "POST",
-  					url: "./booking.py",
-  					data: { param: "get_all()"}
-				}).done(function(data) {
-   					console.log("YES");
-					console.log(data);
+    				$.getJSON("test.json", function(json) {
+    					console.log(json); // this will show the info it in firebug console
 				});
 				
 				$(document).ready(function(){
