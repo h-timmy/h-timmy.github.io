@@ -10,8 +10,9 @@
 			<script>
     				$(document).ready(function(){
         				$.getJSON("reservations.json", function(data){
+						var json_object = data.reservations;
             					console.log("A"); // Prints: Harry
-						document.getElementById("demo").innerHTML = data;
+						document.getElementById("demo").innerHTML = json_object;
             					console.log("B"); // Prints: 14
         				}).fail(function(){
             					console.log("An error has occurred.");
